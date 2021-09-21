@@ -1,12 +1,12 @@
 #include <iostream>
-#include "alp/pool.hpp"
+#include "alp/vm.hpp"
 
 using namespace std;
 
 int main() {
   cout << "Welcome to Alp v1" << endl;
 
-  alp::Pool<int, 1024> a;
-  
+  alp::VM vm;
+
   return 0;
 }

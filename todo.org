@@ -1,0 +1,2 @@
+* add VM.stack/push/peek/pop
+* add goto dispatch
