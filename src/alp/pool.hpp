@@ -19,6 +19,11 @@ namespace alp {
     }
 
     void put(T *t) { free.push_back(t); }
+
+    void destroy(T *t) {
+      t->~T();
+      put(t);
+    }
     
     vector<T *> free;
   };
