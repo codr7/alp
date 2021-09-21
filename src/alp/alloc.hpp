@@ -23,7 +23,7 @@ namespace alp {
     }
 
     template <typename...Args>
-    T &make(Args&&...args) { return *new (get()) T(forward<Args>(args)...); }
+    T *make(Args&&...args) { return new (get()) T(forward<Args>(args)...); }
     
     vector<unique_ptr<Slab>> slabs;
     size_t n = 0;

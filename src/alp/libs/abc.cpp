@@ -3,5 +3,5 @@
 #include "alp/vm.hpp"
 
 namespace alp::libs {
-  ABC::ABC(VM &vm): int_type(vm.type_alloc.make(vm.sym("Int"))) {}
+  ABC::ABC(VM &vm): int_type(*vm.type_alloc.make(vm.sym("Int"))) {}
 }
