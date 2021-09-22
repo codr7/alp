@@ -21,7 +21,7 @@ namespace alp {
     void dealloc(VM &vm) override;
     void dump(ostream &out) const;
 
-    Type &type;
+    Type *type;
     any imp;
   };
 }

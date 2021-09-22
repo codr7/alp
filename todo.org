@@ -1,2 +1,7 @@
+* add Val operator <<
+** simplify main
+** add vm.dump_stack(ostream)
 * add bool Type.true_val(const Val &val)
 * add goto dispatch
+* add parser
+* add repl
