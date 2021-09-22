@@ -25,6 +25,8 @@ namespace alp {
     template <typename T>
     const T &as() const { return any_cast<const T &>(imp); }
 
+    void ref(VM &vm);
+    void deref(VM &vm);
     void dealloc(VM &vm);
     
     void dump(ostream &out) const;

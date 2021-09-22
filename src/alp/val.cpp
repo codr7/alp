@@ -3,8 +3,16 @@
 #include "alp/vm.hpp"
 
 namespace alp {
+  void Val::ref(VM &vm) {
+    if (type->ref_val) { type->ref_val(*this, vm); }
+  }
+
+  void Val::deref(VM &vm) {
+    if (type->deref_val) { type->deref_val(*this, vm); }
+  }
+
   void Val::dealloc(VM &vm) {
-    if (type->dealloc_val) { type->dealloc_val(*this, vm); }
+    if (type->deref_val) { type->deref_val(*this, vm); }
     vm.val_pool.put(this);
   }
 

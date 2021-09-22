@@ -1,5 +1,3 @@
-* add abc.stack_type
-** copy all items in copy_val
 * add goto dispatch
 ** add ops/Push Stop
 * add bool Type.true_val(const Val &val)

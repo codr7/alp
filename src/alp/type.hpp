@@ -3,6 +3,7 @@
 
 #include <functional>
 #include "alp/ref.hpp"
+#include "alp/val.hpp"
 
 namespace alp {
   using namespace std;
@@ -17,14 +18,16 @@ namespace alp {
     void dealloc(VM &vm) override;
 
     const Sym &name;
-    function<void (Val &val, VM &vm)> copy_val;
-    function<void (Val &val, VM &vm)> dealloc_val;
+    function<void (Val &val, VM &vm)> deref_val;
     function<void (const Val &val, ostream &out)> dump_val;
+    function<void (Val &val, VM &vm)> ref_val;
   };
 
   template <typename T>
   struct TType: Type {
-    TType(const Sym &name): Type(name) {}
+    TType(const Sym &name): Type(name) {
+      dump_val = [](const Val &val, ostream &out) { out << val.as<T>(); };
+    }
   };
 }
 
