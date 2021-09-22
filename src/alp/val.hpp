@@ -10,13 +10,16 @@ namespace alp {
   struct Type;
   
   struct Val: Ref {
-    Val(Type &type);
+    Val(Type &type, any imp = nullptr);
     
     template <typename T>
-    T &get() { return any_cast<T>(imp); }
+    T &as() { return any_cast<T &>(imp); }
+
+    template <typename T>
+    const T &as() const { return any_cast<const T &>(imp); }
 
     void dealloc(VM &vm) override;
-    void dump(ostream &out);
+    void dump(ostream &out) const;
 
     Type &type;
     any imp;

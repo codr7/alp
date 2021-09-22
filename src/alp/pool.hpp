@@ -9,13 +9,10 @@ namespace alp {
   template <typename T, size_t N>
   struct Pool: Alloc<T, N> {
     T *get() override {
-      if (free.empty()) {
-	T *t = free.back();
-	free.pop_back();
-	return t;
-      }
-      
-      return Alloc<T, N>::get();
+      if (free.empty()) { return Alloc<T, N>::get(); }
+      T *t = free.back();
+      free.pop_back();
+      return t;
     }
 
     void put(T *t) { free.push_back(t); }

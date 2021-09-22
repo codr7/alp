@@ -1,4 +1,2 @@
-* add VM.stack/push/peek/pop
-* add Type.dump(const Val &val)
-* add type.is_true(const Val &val)
+* add bool Type.true_val(const Val &val)
 * add goto dispatch

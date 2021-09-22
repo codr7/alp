@@ -18,7 +18,7 @@ namespace alp {
     }
 
     virtual T *get() {
-      Slab &s = (slabs.empty() || n == N) ? push_slab()  : *slabs.back();
+      Slab &s = (slabs.empty() || n == N) ? push_slab() : *slabs.back();
       return reinterpret_cast<T *>(&s.slots[n++]);
     }
 
