@@ -5,6 +5,7 @@
 
 #include "alp/libs/abc.hpp"
 #include "alp/pool.hpp"
+#include "alp/stack.hpp"
 #include "alp/sym.hpp"
 #include "alp/type.hpp"
 #include "alp/types.hpp"

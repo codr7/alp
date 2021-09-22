@@ -4,7 +4,7 @@
 
 namespace alp {
   void Val::dealloc(VM &vm) {
-    if (type->dealloc_val) { type->dealloc_val(*this); }
+    if (type->dealloc_val) { type->dealloc_val(*this, vm); }
     vm.val_pool.put(this);
   }
 

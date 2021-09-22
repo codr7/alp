@@ -1,6 +1,3 @@
-* add vm.dump_stack(ostream)
-** add operator <<
-* add Type.copy_val(Val &val)
 * add abc.stack_type
 ** copy all items in copy_val
 * add goto dispatch

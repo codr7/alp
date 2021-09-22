@@ -9,6 +9,7 @@ namespace alp {
 
   struct Sym;
   struct Val;
+  struct VM;
   
   struct Type: Ref {
     Type(const Sym &name);
@@ -16,7 +17,8 @@ namespace alp {
     void dealloc(VM &vm) override;
 
     const Sym &name;
-    function<void (Val &val)> dealloc_val;
+    function<void (Val &val, VM &vm)> copy_val;
+    function<void (Val &val, VM &vm)> dealloc_val;
     function<void (const Val &val, ostream &out)> dump_val;
   };
 

@@ -4,10 +4,7 @@
 #include <cstddef>
 
 namespace alp {
-  struct Val;
-
   using PC = size_t;
-  using Stack = vector<Val *>;
 }
 
 #endif

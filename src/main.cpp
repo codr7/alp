@@ -10,8 +10,8 @@ int main() {
 
   VM vm;
   
-  Val *v = vm.push(vm.libs.abc.int_type, 42);
-  cout << "Val: " << *v << endl;
+  vm.push(vm.libs.abc.int_type, 42);
+  cout << vm.stack << endl;
   
   return 0;
 }
