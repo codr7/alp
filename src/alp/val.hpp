@@ -6,11 +6,15 @@
 
 namespace alp {
   using namespace std;
-  
+
   struct Type;
   
+  template <typename T>
+  struct TType;
+  
   struct Val: Ref {
-    Val(Type &type, any imp = nullptr);
+    template <typename T>
+    Val(TType<T> &type, const T& imp): type(&type), imp(imp) {}
     
     template <typename T>
     T &as() { return any_cast<T &>(imp); }
@@ -24,6 +28,8 @@ namespace alp {
     Type *type;
     any imp;
   };
+
+  ostream &operator <<(ostream &out, const Val &val);
 }
 
 #endif

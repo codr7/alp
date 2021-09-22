@@ -1,7 +1,11 @@
-* add Val operator <<
-** simplify main
-** add vm.dump_stack(ostream)
-* add bool Type.true_val(const Val &val)
+* add vm.dump_stack(ostream)
+** add operator <<
+* add Type.copy_val(Val &val)
+* add abc.stack_type
+** copy all items in copy_val
 * add goto dispatch
-* add parser
-* add repl
+** add ops/Push Stop
+* add bool Type.true_val(const Val &val)
+* add bool_type
+* add string_type
+* add assembler

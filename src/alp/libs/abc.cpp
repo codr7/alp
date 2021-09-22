@@ -5,7 +5,7 @@
 #include <ostream>
 
 namespace alp::libs {
-  ABC::ABC(VM &vm): int_type(*vm.type_alloc.make(vm.sym("Int"))) {
+  ABC::ABC(VM &vm): int_type(*new IntType(vm.sym("Int"))) {
     int_type.dump_val = [](const Val &val, ostream &out) { out << val.as<int>(); };
   }  
 }

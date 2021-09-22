@@ -8,6 +8,8 @@ namespace alp {
   
   struct Ref {
     Ref(size_t refs = 1);
+    Ref(const Ref &);
+    
     bool deref(VM &vm);
     virtual void dealloc(VM &vm) = 0;
 

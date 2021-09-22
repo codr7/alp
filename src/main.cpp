@@ -1,4 +1,5 @@
 #include <iostream>
+#include "alp/val.hpp"
 #include "alp/vm.hpp"
 
 using namespace std;
@@ -10,9 +11,7 @@ int main() {
   VM vm;
   
   Val *v = vm.push(vm.libs.abc.int_type, 42);
-  cout << "Val: ";
-  v->dump(cout);
-  cout << endl;
+  cout << "Val: " << *v << endl;
   
   return 0;
 }

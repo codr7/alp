@@ -7,11 +7,12 @@
 #include "alp/pool.hpp"
 #include "alp/sym.hpp"
 #include "alp/type.hpp"
+#include "alp/types.hpp"
 #include "alp/val.hpp"
 
 namespace alp {
   using namespace std;
-
+    
   struct VM {
     struct Libs {
       Libs(VM &vm);
@@ -23,20 +24,24 @@ namespace alp {
     VM();
     
     Sym &sym(const string_view &name);
-    Val *val(Type &type, any imp);
+
+    template <typename T>
+    Val *val(TType<T> &type, const T &imp) { return val_pool.make(type, imp); }
   
-    void push(Val *val);
-    Val *push(Type &type, any imp);
+    Val *push(Val *val);
+
+    template <typename T>
+    Val *push(TType<T> &type, const T &imp) { return push(val(type, imp)); }
+
     Val *peek();
     Val *pop();
     
     Alloc<Sym, SLAB_SIZE> sym_alloc;
-    Alloc<Type, SLAB_SIZE> type_alloc;
     Pool<Val, SLAB_SIZE> val_pool;
 
     unordered_map<string, Sym *> syms;
     Libs libs;
-    vector<Val *> stack;
+    Stack stack;
   };
 }
 

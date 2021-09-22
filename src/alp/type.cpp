@@ -3,4 +3,8 @@
 
 namespace alp {
   Type::Type(const Sym &name): name(name) {}
+
+  Type::~Type() {}
+
+  void Type::dealloc(VM &vm) { delete this; }
 }
